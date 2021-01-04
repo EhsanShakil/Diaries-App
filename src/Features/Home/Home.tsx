@@ -1,10 +1,18 @@
 import React, { FC } from 'react';
+import Diaries from '../Diary/Diaries';
+import Editor from '../Entry/Editor';
 
 const Home: FC = () => {
-  return (
-    <div>
-      <p>Welcome user!</p>
+ return (
+  <div className="two-cols">
+    <div className="left">
+      <Diaries />
     </div>
+    <div className="right">
+      <Editor />
+    </div>
+  </div>
+
   );
 };
 
