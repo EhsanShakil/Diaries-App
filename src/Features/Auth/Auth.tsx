@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { User } from '../../Interfaces/user.interface';
 import * as Yup from 'yup';
@@ -18,8 +18,9 @@ const schema = Yup.object().shape({
 
 const Auth: FC = () => {
   const { handleSubmit, register, errors } = useForm<User>({
-      validationSchema: schema,
+    validationSchema: schema,
   });
+
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
@@ -54,6 +55,7 @@ const Auth: FC = () => {
               <p className="error">{errors.username.message}</p>
             )}
           </div>
+
           <div className="inputWrapper">
             <input
               ref={register}
@@ -65,6 +67,7 @@ const Auth: FC = () => {
               <p className="error">{errors.password.message}</p>
             )}
           </div>
+
           {!isLogin && (
             <div className="inputWrapper">
               <input
@@ -77,11 +80,13 @@ const Auth: FC = () => {
               )}
             </div>
           )}
+
           <div className="inputWrapper">
             <button type="submit" disabled={loading}>
               {isLogin ? 'Login' : 'Create account'}
             </button>
           </div>
+
           <p
             onClick={() => setIsLogin(!isLogin)}
             style={{ cursor: 'pointer', opacity: 0.7 }}
