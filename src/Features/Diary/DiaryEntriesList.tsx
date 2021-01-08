@@ -3,16 +3,16 @@ import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../RootReducer/RootReducer';
 import http from '../../Services/api';
-import { Entry } from '../../Interfaces/entry.interface';
+import { Entry } from '../../Interface/entry.interface';
 import { setEntries } from '../Entry/EntriesSlice';
 import { setCurrentlyEditing, setCanEdit } from '../Entry/EditorSlice';
 import dayjs from 'dayjs';
 import { useAppDispatch } from '../../Store/Store';
 
 const DiaryEntriesList: FC = () => {
-  const { entries } = useSelector((state: RootState) => state);
+  const { entries }: any = useSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
-  const { id }:any = useParams();
+  const { id }: any = useParams();
 
   useEffect(() => {
     if (id != null) {
@@ -37,7 +37,7 @@ const DiaryEntriesList: FC = () => {
         </Link>
       </header>
       <ul>
-        {entries.map((entry) => (
+        {entries.map((entry: any) => (
           <li
             key={entry.id}
             onClick={() => {

@@ -12,7 +12,7 @@ import { showAlert } from '../../util';
 import { useAppDispatch } from '../../Store/Store';
 
 const Editor: FC = () => {
-  const { currentlyEditing: entry, canEdit, activeDiaryId } = useSelector(
+  const { currentlyEditing: entry, canEdit, activeDiaryId }: any = useSelector(
     (state: RootState) => state.editor
   );
   const [editedEntry, updateEditedEntry] = useState(entry);

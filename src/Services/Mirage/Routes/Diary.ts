@@ -1,21 +1,21 @@
-import { Response, Request } from 'miragejs';
-import { handleErrors } from '../Server';
-import { Diary } from '../../../Interfaces/diary.interface';
-import { Entry } from '../../../Interfaces/entry.interface';
-import dayjs from 'dayjs';
-import { User } from '../../../Interfaces/user.interface';
+import { Response, Request } from "miragejs";
+import { handleErrors } from "../Server";
+import { Diary } from "../../../Interfaces/diary.interface";
+import dayjs from "dayjs";
+import { User } from "../../../Interfaces/user.interface";
+import { Entry } from "../../../Interfaces/entry.interface";
 
 export const create = (
   schema: any,
   req: Request
 ): { user: User; diary: Diary } | Response => {
   try {
-    const { title, type, userId } = JSON.parse(req.requestBody) as Partial<
-      Diary
-    >;
+    const { title, type, userId } = JSON.parse(
+      req.requestBody
+    ) as Partial<Diary>;
     const exUser = schema.users.findBy({ id: userId });
     if (!exUser) {
-      return handleErrors(null, 'No such user exists.');
+      return handleErrors(null, "No such user exists.");
     }
     const now = dayjs().format();
     const diary = exUser.createDiary({
@@ -31,7 +31,7 @@ export const create = (
       diary: diary.attrs,
     };
   } catch (error) {
-    return handleErrors(error, 'Failed to create Diary.');
+    return handleErrors(error, "Failed to create Diary.");
   }
 };
 
@@ -46,7 +46,7 @@ export const updateDiary = (schema: any, req: Request): Diary | Response => {
     });
     return diary.attrs as Diary;
   } catch (error) {
-    return handleErrors(error, 'Failed to update Diary.');
+    return handleErrors(error, "Failed to update Diary.");
   }
 };
 
@@ -55,7 +55,7 @@ export const getDiaries = (schema: any, req: Request): Diary[] | Response => {
     const user = schema.users.find(req.params.id);
     return user.diary as Diary[];
   } catch (error) {
-    return handleErrors(error, 'Could not get user diaries.');
+    return handleErrors(error, "Could not get user diaries.");
   }
 };
 
@@ -82,7 +82,7 @@ export const addEntry = (
       entry: entry.attrs,
     };
   } catch (error) {
-    return handleErrors(error, 'Failed to save entry.');
+    return handleErrors(error, "Failed to save entry.");
   }
 };
 
@@ -94,7 +94,7 @@ export const getEntries = (
     const diary = schema.diaries.find(req.params.id);
     return diary.entry;
   } catch (error) {
-    return handleErrors(error, 'Failed to get Diary entries.');
+    return handleErrors(error, "Failed to get Diary entries.");
   }
 };
 
@@ -109,7 +109,7 @@ export const updateEntry = (schema: any, req: Request): Entry | Response => {
     });
     return entry.attrs as Entry;
   } catch (error) {
-    return handleErrors(error, 'Failed to update entry.');
+    return handleErrors(error, "Failed to update entry.");
   }
 };
 

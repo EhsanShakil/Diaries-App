@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Entry } from "../../Interfaces/entry.interface";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Entry } from '../../Interfaces/entry.interface';
 
 interface EditorState {
   canEdit: boolean;
@@ -14,7 +14,7 @@ const initialState: EditorState = {
 };
 
 const editor = createSlice({
-  name: "editor",
+  name: 'editor',
   initialState,
   reducers: {
     setCanEdit(state, { payload }: PayloadAction<boolean>) {
@@ -29,9 +29,5 @@ const editor = createSlice({
   },
 });
 
-export const {
-  setCanEdit,
-  setCurrentlyEditing,
-  setActiveDiaryId,
-} = editor.actions;
+export const { setCanEdit, setCurrentlyEditing, setActiveDiaryId } = editor.actions;
 export default editor.reducer;
