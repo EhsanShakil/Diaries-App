@@ -1,5 +1,5 @@
 import React, { FC, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../RootReducer/RootReducer';
 
@@ -18,7 +18,7 @@ const App: FC = () => {
             {isLoggedIn ? <Home /> : <Auth />}
           </Suspense>
         </Route>
-      </Switch>
+        </Switch>
     </Router>
   );
 };
