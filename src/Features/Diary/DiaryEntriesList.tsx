@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../RootReducer/RootReducer';
 import http from '../../Services/api';
-import { Entry } from '../../Interface/entry.interface';
+import { Entry } from '../../Interfaces/entry.interface';
 import { setEntries } from '../Entry/EntriesSlice';
 import { setCurrentlyEditing, setCanEdit } from '../Entry/EditorSlice';
 import dayjs from 'dayjs';
