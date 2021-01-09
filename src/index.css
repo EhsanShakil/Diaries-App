@@ -72,6 +72,7 @@ button {
   transition: var(--transition);
 }
 button.secondary {
+  color: #000;
   background-color: #fff;
   border-color: #fff;
 }
@@ -124,6 +125,10 @@ button:focus {
 .editor textarea {
   width: 100%;
   height: calc(100vh - 160px);
+}
+.back {
+  color: #000;
+  text-decoration: none;
 }
 .entries ul {
   list-style: none;

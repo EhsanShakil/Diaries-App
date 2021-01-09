@@ -31,8 +31,8 @@ const DiaryEntriesList: FC = () => {
 
   return (
     <div className="entries">
-      <header>
-        <Link to="/">
+      <header >
+        <Link to="/" className='back'>
           <h3>← Go Back</h3>
         </Link>
       </header>
