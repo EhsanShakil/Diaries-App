@@ -61,7 +61,6 @@ textarea:focus {
 }
 button {
   appearance: none;
-  border: 1px solid var(--primary-color);
   color: #fff;
   background-color: #000;
   text-transform: uppercase;
@@ -73,7 +72,6 @@ button {
   transition: var(--transition);
 }
 button.secondary {
-  color: var(--primary-color);
   background-color: #fff;
   border-color: #fff;
 }
